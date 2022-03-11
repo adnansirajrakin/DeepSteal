@@ -58,20 +58,22 @@ Paper Result/Expected: Accuracy = 59.8 % ; Fidelity = 64.11 %; Accuracy Under At
 ### Only MSB cases:
 
 
-#VGG: 
+# VGG: 
 
 CUDA_VISIBLE_DEVICES=1 python mvg.py --epsilon 0.031  --adv_model './results/vgg.pt' --evaluate 0 --lambdas 0.00005 --layer 12 --percentage 0.9 --epochs 150
 
 Paper Result/Expected: Accuracy = 81.56 % ; Fidelity = 83.33 %; Accuracy Under Attack = 18.55 %. 
 
-#Resnet-18: 
+# Resnet-18: 
 
 CUDA_VISIBLE_DEVICES=2 python m18.py --epsilon 0.031  --adv_model './results/ri.pt' --evaluate 0 --lambdas 0.00005 --layer 23 --percentage 0.9 --epochs 150
 
 Paper Result/Expected: Accuracy = 90.02 % ; Fidelity = 91.67 %; Accuracy Under Attack = 1.2 %. 
 
 
-ResNet-34:  CUDA_VISIBLE_DEVICES=0 python m34.py --epsilon 0.031  --adv_model './results/r34.pt' --evaluate 0 --lambdas 0.00005 --layer 42 --percentage 0.9 --epochs 150
+# ResNet-34:  
+
+CUDA_VISIBLE_DEVICES=0 python m34.py --epsilon 0.031  --adv_model './results/r34.pt' --evaluate 0 --lambdas 0.00005 --layer 42 --percentage 0.9 --epochs 150
 
 Paper Result/Expected: Accuracy = 89.92 % ; Fidelity =  91.8 %; Accuracy Under Attack = 1.03 %. 
 
