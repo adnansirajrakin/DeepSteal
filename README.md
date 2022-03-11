@@ -1,6 +1,6 @@
 ### Deep Steal Attack published in IEEE Securityprivacy 2022
 
-Recent advancements of Deep Neural Networks (DNNs) have seen widespread deployment in multiple security-sensitive domains. The need for resource-intensive training and use of valuable domain-specific training data have made these models a top intellectual property (IP) for model owners. One of the major threats to the DNN privacy is model extraction attacks where adversaries attempt to steal sensitive information in DNN models. In this work, we propose an advanced model extraction attack framework DeepSteal that steals DNN weights remotely for the first time with the aid of a memory side-channel attack. Our proposed DeepSteal comprises two key stages. Firstly, we develop a new weight bit information extraction method, called HammerLeak, through adopting the rowhammer based fault technique as the information leakage vector. HammerLeak leverages several novel system-level techniques tailored for DNN applications to enable fast and efficient weight stealing. Secondly, we propose a novel substitute model training algorithm with Mean Clustering weight penalty, which leverages the partial leaked bit information effectively and generates a substitute prototype of the target victim model. We evaluate the proposed model extraction framework on three popular image datasets (e.g., CIFAR-10/100/GTSRB) and four DNN architectures (e.g., ResNet-18/34/Wide-ResNet/VGG-11). The extracted substitute model has successfully achieved more than 90% test accuracy on deep residual networks for the CIFAR-10 dataset. Moreover, our extracted substitute model could also generate effective adversarial input samples to fool the victim model. Notably, it achieves similar performance (i.e., ∼1-2% test accuracy under attack) as white-box adversarial input attack (e.g., PGD/Trades). https://arxiv.org/pdf/2111.04625.pdf 
+Recent advancements of Deep Neural Networks (DNNs) have seen widespread deployment in multiple security-sensitive domains. The need for resource-intensive training and use of valuable domain-specific training data have made these models a top intellectual property (IP) for model owners. One of the major threats to the DNN privacy is model extraction attacks where adversaries attempt to steal sensitive information in DNN models. In this work, we propose an advanced model extraction attack framework DeepSteal that steals DNN weights remotely for the first time with the aid of a memory side-channel attack. Our proposed DeepSteal comprises two key stages. Firstly, we develop a new weight bit information extraction method, called HammerLeak, through adopting the rowhammer based fault technique as the information leakage vector. HammerLeak leverages several novel system-level techniques tailored for DNN applications to enable fast and efficient weight stealing. Secondly, we propose a novel substitute model training algorithm with Mean Clustering weight penalty, which leverages the partial leaked bit information effectively and generates a substitute prototype of the target victim model. We evaluate the proposed model extraction framework on three popular image datasets (e.g., CIFAR-10/100/GTSRB) and four DNN architectures (e.g., ResNet-18/34/Wide-ResNet/VGG-11). The extracted substitute model has successfully achieved more than 90% test accuracy on deep residual networks for the CIFAR-10 dataset. Moreover, our extracted substitute model could also generate effective adversarial input samples to fool the victim model. Notably, it achieves similar performance (i.e., ∼1-2% test accuracy under attack) as white-box adversarial input attack (e.g., PGD/Trades). Paper Link: https://arxiv.org/pdf/2111.04625.pdf. Model Link: https://drive.google.com/drive/folders/1fphQoeKle4UYkEEwl__TO9iO0mYvT0Fb?usp=sharing
 
 
 ### CIFAR-10:
@@ -58,11 +58,15 @@ Paper Result/Expected: Accuracy = 59.8 % ; Fidelity = 64.11 %; Accuracy Under At
 ### Only MSB cases:
 
 
-VGG: CUDA_VISIBLE_DEVICES=1 python mvg.py --epsilon 0.031  --adv_model './results/vgg.pt' --evaluate 0 --lambdas 0.00005 --layer 12 --percentage 0.9 --epochs 150
+#VGG: 
+
+CUDA_VISIBLE_DEVICES=1 python mvg.py --epsilon 0.031  --adv_model './results/vgg.pt' --evaluate 0 --lambdas 0.00005 --layer 12 --percentage 0.9 --epochs 150
 
 Paper Result/Expected: Accuracy = 81.56 % ; Fidelity = 83.33 %; Accuracy Under Attack = 18.55 %. 
 
-Resnet-18: CUDA_VISIBLE_DEVICES=2 python m18.py --epsilon 0.031  --adv_model './results/ri.pt' --evaluate 0 --lambdas 0.00005 --layer 23 --percentage 0.9 --epochs 150
+#Resnet-18: 
+
+CUDA_VISIBLE_DEVICES=2 python m18.py --epsilon 0.031  --adv_model './results/ri.pt' --evaluate 0 --lambdas 0.00005 --layer 23 --percentage 0.9 --epochs 150
 
 Paper Result/Expected: Accuracy = 90.02 % ; Fidelity = 91.67 %; Accuracy Under Attack = 1.2 %. 
 
